@@ -1,4 +1,4 @@
-# Rap_Tapestry
+# Rappad_Lyrics_Scraper
 
 This Python-based project taims to scrape specific elements from a webpage on Rappad.co. The script navigates to a specified URL, waits for all JavaScript to execute, and then scrapes the words highlighted in yellow. This project utilizes web scraping with Python, BeautifulSoup, and Selenium, and the scraped data for analysis of the lyrics.
 
