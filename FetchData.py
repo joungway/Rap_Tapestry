@@ -1,7 +1,5 @@
 from flask import Flask, request, redirect
 import requests
-# import json
-
 
 app = Flask(__name__)
 
@@ -14,9 +12,7 @@ redirect_uri = 'http://localhost:8888/callback'
 @app.route('/')
 def login():
     # redirect to Spotify's authorization page
-    auth_url = f'https://accounts.spotify.com/' \
-               f'authorize?response_type=code&client_' \
-               f'id=5619e3b88bde4a808ccba8f2794ffd3f&redirect_uri=http://localhost:8888/callback'
+    auth_url = f'https://accounts.spotify.com/authorize?response_type=code&client_id=5619e3b88bde4a808ccba8f2794ffd3f&redirect_uri=http://localhost:8888/callback'
     return redirect(auth_url)
 
 
@@ -39,7 +35,7 @@ def callback():
     auth_response_data = auth_response.json()
     access_token = auth_response_data['access_token']
 
-    # access authorized Spotify data
+    # use access token to access authorized Spotify data
     track_id = "5Z01UMMf7V1o0MzF86s6WJ"
     track_analysis = get_track_analysis(track_id, access_token)
 
@@ -55,23 +51,9 @@ def get_track_analysis(track_id, token):
         print(f"Failed to get track analysis: {response.json()}")
         return None
 
-    # Get the response JSON data
+    # Get the response JSON data and return the data
     data = response.json()
-
-    # Extract bars and beats
-    bars = data.get('bars', [])
-    beats = data.get('beats', [])
-
-    return {'bars': bars, 'beats': beats}
-
-#    Write JSON data to a file
-#    try:
-#        print("Attempting to write file...")
-#        with open('/Users/joungway/Desktop/track_analysis.json', 'w') as outfile:
-#            json.dump(response.json(), outfile)
-#        print("File written successfully.")
-#    except Exception as e:
-#        print("An error occurred:", e)
+    return data
 
 
 if __name__ == "__main__":
