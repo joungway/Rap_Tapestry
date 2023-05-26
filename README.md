@@ -1,11 +1,12 @@
-# Rappad_Lyrics_Scraper
+# Tapestry_of_Rap
 
+## Fetch_Data
+Coming soon.
+
+## Rappad_Lyrics_Scraper: 
 This Python-based project taims to scrape specific elements from a webpage on Rappad.co. The script navigates to a specified URL, waits for all JavaScript to execute, and then scrapes the words highlighted in yellow. 
 - 🎯 Goal: analysis of the lyrics with the use of web scraping in Python, BeautifulSoup, and Selenium, and the scraped data.
 - 📋 Output: it will create a file named 'output.txt' in the same directory
-
-## 🔧 Installation and Setup
-To run this project, you need to install a few Python libraries and tools. Run the following command in your terminal:
 
 ### 1. Install Selenium
 ```pip install selenium```
